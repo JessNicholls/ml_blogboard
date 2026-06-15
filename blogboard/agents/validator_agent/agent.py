@@ -3,7 +3,7 @@ import re
 from datetime import datetime
 from blogboard.graph.state import BlogState
 from blogboard.services.llm import LLMAgentService
-from blogboard.services.storage import R2StorageService
+from blogboard.services.local_storage import LocalStorageService
 from blogboard.services.prompt_manager import prompt_manager
 from .prompts import VALIDATOR_PROMPT
 
@@ -71,14 +71,17 @@ def validator_node(state: BlogState) -> BlogState:
             "revision_count": current_revision + 1
         }
         
-    print(f"  [AGENT] Draft APPROVED! Generating Metadata and Saving to R2...")
+    print(f"  [AGENT] Draft APPROVED! Generating Metadata and Saving locally...")
     
-    # Save to R2
+    # Save to local storage
     slug_value = re.sub(r"[^\w\s-]", "", slug_value).strip("-")
-    md_relative = f"blogs/{domain}/{slug_value}.md"
-    storage = R2StorageService()
+    md_relative = f"{domain}/{slug_value}.md"
+    storage = LocalStorageService()
     
     storage.put_object(md_relative, content, content_type="text/markdown")
+    
+    # Construct the full file path for display
+    full_path = storage.base_path / md_relative
     articles = storage.get_articles_json(domain)
     articles = [a for a in articles if a.get("id") != md_relative]
     
@@ -104,5 +107,5 @@ def validator_node(state: BlogState) -> BlogState:
         "title": title,
         "description": description,
         "slug": slug_value,
-        "md_path": f"r2://{md_relative}"
+        "md_path": str(full_path)
     }

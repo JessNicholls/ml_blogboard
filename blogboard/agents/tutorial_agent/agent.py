@@ -3,7 +3,7 @@ import re
 import math
 from blogboard.graph.state import BlogState
 from blogboard.services.llm import LLMAgentService
-from blogboard.services.storage import R2StorageService
+from blogboard.services.local_storage import LocalStorageService
 from blogboard.config.settings import app_settings
 from blogboard.services.prompt_manager import prompt_manager
 from .prompts import TUTORIAL_TOPIC_PROMPT, TUTORIAL_GENERATION_PROMPT
@@ -15,7 +15,7 @@ def _read_time(text: str) -> str:
 def tutorial_node(state: BlogState) -> BlogState:
     print("  => [TutorialAgent] Running...")
     
-    storage = R2StorageService()
+    storage = LocalStorageService()
     
     # --- Step 1: Topic Selection (if not already strictly defined by State) ---
     topic = state.get("topic")

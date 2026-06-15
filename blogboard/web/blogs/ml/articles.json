@@ -1,5 +1,19 @@
 [
   {
+    "id": "blogs/ml/deep-learning-advances.md",
+    "category": "ml",
+    "topic": "Advances in Deep Learning",
+    "subtopics": "Convolutional Neural Networks, Recurrent Neural Networks, Transfer Learning, Generative Adversarial Networks",
+    "title": "Deep Learning Advances",
+    "description": "Explore latest deep learning techniques: CNNs, RNNs, Transfer Learning & GANs",
+    "date": "2026-06-15",
+    "tags": [
+      "ml"
+    ],
+    "readTime": "4 min",
+    "file": "blogs/ml/deep-learning-advances.md"
+  },
+  {
     "id": "blogs/ml/machine-learning-explained.md",
     "category": "ml",
     "title": "Machine Learning Explained",
