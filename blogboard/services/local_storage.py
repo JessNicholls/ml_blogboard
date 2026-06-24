@@ -122,18 +122,20 @@ class LocalStorageService:
     def get_all_domains_last_updated(self) -> Dict[str, str]:
         """
         Scan all domains and return their latest update dates.
-        
+
         Returns:
-            Dictionary mapping domain slugs to their last update date
+            Dictionary mapping domain slugs to their last update date.
+            Domains with no articles get "0000-00-00" so they sort first
+            (oldest) and are picked before any domain that already has content.
         """
         latest_dates = {}
         for domain_slug in app_settings.tags.model_dump().keys():
             articles = self.get_articles_json(domain_slug)
             if not articles:
-                latest_dates[domain_slug] = "Never"
+                latest_dates[domain_slug] = "0000-00-00"
             else:
                 sorted_articles = sorted(articles, key=lambda x: x.get("date", ""), reverse=True)
-                latest_dates[domain_slug] = sorted_articles[0].get("date", "Unknown")
+                latest_dates[domain_slug] = sorted_articles[0].get("date", "0000-00-00")
         return latest_dates
 
 # Made with Bob

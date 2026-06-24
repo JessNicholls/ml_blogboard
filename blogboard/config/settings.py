@@ -1,11 +1,18 @@
-from typing import Dict
+from typing import Dict, Optional
 from pydantic import BaseModel, Field, AliasChoices
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 class LLMSettings(BaseModel):
-    API_KEY: str = Field(validation_alias=AliasChoices('API_KEY', 'api_key', 'GROQ_API_KEY', 'groq_api_key'))
+    PROVIDER: str = "groq"  # "groq" or "watsonx"
+    API_KEY: str = Field(default="", validation_alias=AliasChoices('API_KEY', 'api_key', 'GROQ_API_KEY', 'groq_api_key'))
     MODEL_NAME: str = "llama-3.3-70b-versatile"
     TEMPERATURE: float = 1.0
+
+class WatsonxSettings(BaseModel):
+    API_KEY: str = ""
+    PROJECT_ID: str = ""
+    URL: str = "https://eu-gb.ml.cloud.ibm.com"
+    MODEL_NAME: str = "meta-llama/llama-3-3-70b-instruct"
 
 class TagSettings(BaseModel):
     ml: Dict[str, str] = {"label": "Machine Learning", "shortLabel": "ML"}
@@ -17,21 +24,22 @@ class TagSettings(BaseModel):
     ainews: Dict[str, str] = {"label": "AI News", "shortLabel": "AI News"}
 
 class R2Settings(BaseModel):
-    ACCOUNT_ID: str
-    ACCESS_KEY_ID: str
-    SECRET_ACCESS_KEY: str
-    BUCKET_NAME: str
+    ACCOUNT_ID: str = "not-used"
+    ACCESS_KEY_ID: str = "not-used"
+    SECRET_ACCESS_KEY: str = "not-used"
+    BUCKET_NAME: str = "not-used"
 
 class ContentAPISettings(BaseModel):
-    TAVILY_API_KEY: str
-    GUARDIAN_API_KEY: str
-    UNSPLASH_API_KEY: str
+    TAVILY_API_KEY: str = ""
+    GUARDIAN_API_KEY: str = ""
+    UNSPLASH_API_KEY: str = ""
 
 class Settings(BaseSettings):
     llm: LLMSettings
+    watsonx: WatsonxSettings = Field(default_factory=WatsonxSettings)
     tags: TagSettings = Field(default_factory=TagSettings)
-    r2: R2Settings
-    content: ContentAPISettings
+    r2: R2Settings = Field(default_factory=R2Settings)
+    content: ContentAPISettings = Field(default_factory=ContentAPISettings)
 
     model_config = SettingsConfigDict(
         env_file=".env",

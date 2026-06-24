@@ -1,0 +1,16 @@
+[
+  {
+    "id": "cv/explainable-computer-vision.md",
+    "category": "cv",
+    "topic": "Explainable Computer Vision: Techniques for Interpretable Models",
+    "subtopics": "Saliency Maps, Feature Importance, Model Interpretability Techniques, Attention Mechanisms",
+    "title": "Explainable CV",
+    "description": "Learn techniques for interpretable computer vision models",
+    "date": "2026-06-24",
+    "tags": [
+      "cv"
+    ],
+    "readTime": "4 min",
+    "file": "cv/explainable-computer-vision.md"
+  }
+]

@@ -1,0 +1,16 @@
+[
+  {
+    "id": "nlp/explainable-ai-in-nlp.md",
+    "category": "nlp",
+    "topic": "Explainable AI in Natural Language Processing",
+    "subtopics": "Interpretability Techniques, Model Explainability Methods, Attention Mechanisms, Adversarial Attacks",
+    "title": "Explainable AI in NLP",
+    "description": "Discover how Explainable AI enhances transparency in Natural Language Processing",
+    "date": "2026-06-24",
+    "tags": [
+      "nlp"
+    ],
+    "readTime": "3 min",
+    "file": "nlp/explainable-ai-in-nlp.md"
+  }
+]

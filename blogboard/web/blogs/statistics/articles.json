@@ -1,0 +1,16 @@
+[
+  {
+    "id": "statistics/explainable-ai-statistical-analysis.md",
+    "category": "statistics",
+    "topic": "Explainable AI through Statistical Analysis",
+    "subtopics": "Model Interpretability, Statistical Techniques for Feature Selection, Uncertainty Quantification in AI Models, Causal Inference for AI Explainability",
+    "title": "Explainable AI",
+    "description": "Unlock AI's black box with statistical analysis for transparency and trust",
+    "date": "2026-06-24",
+    "tags": [
+      "statistics"
+    ],
+    "readTime": "4 min",
+    "file": "statistics/explainable-ai-statistical-analysis.md"
+  }
+]

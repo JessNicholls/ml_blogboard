@@ -1,6 +1,20 @@
 [
   {
-    "id": "blogs/ainews/the-week-in-ai-1.md",
+    "id": "ainews/latest-ai-news.md",
+    "category": "ainews",
+    "topic": "Latest AI News",
+    "subtopics": "",
+    "title": "AI News Update",
+    "description": "Latest AI news: controversy, accountability, and privacy concerns",
+    "date": "2026-06-24",
+    "tags": [
+      "ainews"
+    ],
+    "readTime": "2 min",
+    "file": "ainews/latest-ai-news.md"
+  },
+  {
+    "id": "ainews/the-week-in-ai-1.md",
     "category": "ainews",
     "title": "The Week in AI #1",
     "description": "The past week has seen significant developments in the artificial intelligence industry, marking a potential structural shift in its development, deployment, and regulation.",
@@ -11,6 +25,6 @@
       "weekly roundup"
     ],
     "readTime": "7 min",
-    "file": "blogs/ainews/the-week-in-ai-1.md"
+    "file": "ainews/the-week-in-ai-1.md"
   }
 ]

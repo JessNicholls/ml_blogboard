@@ -1,6 +1,62 @@
 [
   {
-    "id": "blogs/ml/deep-learning-advances.md",
+    "id": "ml/introduction-to-explainable-ai.md",
+    "category": "ml",
+    "topic": "Explainable AI",
+    "subtopics": "Model Interpretability, Feature Attribution, Model Explainability Techniques, Transparency in Machine Learning",
+    "title": "Explainable AI",
+    "description": "Unlock the black box of machine learning with Explainable AI techniques",
+    "date": "2026-06-24",
+    "tags": [
+      "ml"
+    ],
+    "readTime": "3 min",
+    "file": "ml/introduction-to-explainable-ai.md"
+  },
+  {
+    "id": "ml/time-series-forecasting-tutorial.md",
+    "category": "ml",
+    "topic": "Machine Learning for Time Series Forecasting",
+    "subtopics": "Autoregressive Integrated Moving Average Models, Prophet Forecasting, LSTM Networks for Time Series, Ensemble Methods for Forecasting",
+    "title": "Time Series Forecasting",
+    "description": "Learn machine learning for time series forecasting with ARIMA, Prophet, LSTM & ensemble methods",
+    "date": "2026-06-24",
+    "tags": [
+      "ml"
+    ],
+    "readTime": "3 min",
+    "file": "ml/time-series-forecasting-tutorial.md"
+  },
+  {
+    "id": "ml/machine-learning-for-nlp.md",
+    "category": "ml",
+    "topic": "Machine Learning for Natural Language Processing",
+    "subtopics": "Text Classification, Sentiment Analysis, Language Modeling, Named Entity Recognition",
+    "title": "NLP Machine Learning",
+    "description": "Discover machine learning for NLP, covering text classification, sentiment analysis, language modeling, and named entity recognition.",
+    "date": "2026-06-24",
+    "tags": [
+      "ml"
+    ],
+    "readTime": "3 min",
+    "file": "ml/machine-learning-for-nlp.md"
+  },
+  {
+    "id": "ml/adversarial-machine-learning.md",
+    "category": "ml",
+    "topic": "Adversarial Machine Learning",
+    "subtopics": "Adversarial Attack Techniques, Defending Against Adversarial Attacks, Adversarial Training Methods, Robustness Evaluation Metrics",
+    "title": "Adversarial ML",
+    "description": "Learn about adversarial machine learning, its attacks and defenses",
+    "date": "2026-06-24",
+    "tags": [
+      "ml"
+    ],
+    "readTime": "3 min",
+    "file": "ml/adversarial-machine-learning.md"
+  },
+  {
+    "id": "ml/deep-learning-advances.md",
     "category": "ml",
     "topic": "Advances in Deep Learning",
     "subtopics": "Convolutional Neural Networks, Recurrent Neural Networks, Transfer Learning, Generative Adversarial Networks",
@@ -11,10 +67,10 @@
       "ml"
     ],
     "readTime": "4 min",
-    "file": "blogs/ml/deep-learning-advances.md"
+    "file": "ml/deep-learning-advances.md"
   },
   {
-    "id": "blogs/ml/machine-learning-explained.md",
+    "id": "ml/machine-learning-explained.md",
     "category": "ml",
     "title": "Machine Learning Explained",
     "description": "Discover the basics of machine learning and its applications, learn how to get started",
@@ -27,6 +83,6 @@
       "data-science"
     ],
     "readTime": "6 min",
-    "file": "blogs/ml/machine-learning-explained.md"
+    "file": "ml/machine-learning-explained.md"
   }
 ]

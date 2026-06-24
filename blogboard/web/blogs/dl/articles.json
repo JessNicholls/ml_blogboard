@@ -1,18 +1,16 @@
 [
   {
-    "id": "blogs/dl/deep-learning-intro.md",
+    "id": "dl/explainable-deep-learning.md",
     "category": "dl",
-    "title": "Deep Learning Intro",
-    "description": "Learn deep learning fundamentals and boost your AI skills",
-    "date": "2026-03-03",
+    "topic": "Explainable Deep Learning",
+    "subtopics": "Model Interpretability, Attention Mechanisms, Salience Maps, Adversarial Attacks",
+    "title": "Explainable DL",
+    "description": "Learn about explainable deep learning, model interpretability, and adversarial attacks",
+    "date": "2026-06-24",
     "tags": [
-      "deep-learning",
-      "neural-networks",
-      "artificial-intelligence",
-      "machine-learning",
-      "ai-models"
+      "dl"
     ],
-    "readTime": "8 min",
-    "file": "blogs/dl/deep-learning-intro.md"
+    "readTime": "4 min",
+    "file": "dl/explainable-deep-learning.md"
   }
 ]
