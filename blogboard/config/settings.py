@@ -14,6 +14,11 @@ class WatsonxSettings(BaseModel):
     URL: str = "https://eu-gb.ml.cloud.ibm.com"
     MODEL_NAME: str = "meta-llama/llama-3-3-70b-instruct"
 
+class WatsonxOrchestrateSettings(BaseModel):
+    API_KEY: str = ""
+    INSTANCE_URL: str = ""
+    SPACE_ID: str = ""
+
 class TagSettings(BaseModel):
     ml: Dict[str, str] = {"label": "Machine Learning", "shortLabel": "ML"}
     dl: Dict[str, str] = {"label": "Deep Learning", "shortLabel": "DL"}
@@ -37,9 +42,11 @@ class ContentAPISettings(BaseModel):
 class Settings(BaseSettings):
     llm: LLMSettings
     watsonx: WatsonxSettings = Field(default_factory=WatsonxSettings)
+    watsonx_orchestrate: WatsonxOrchestrateSettings = Field(default_factory=WatsonxOrchestrateSettings)
     tags: TagSettings = Field(default_factory=TagSettings)
     r2: R2Settings = Field(default_factory=R2Settings)
     content: ContentAPISettings = Field(default_factory=ContentAPISettings)
+    ORCHESTRATOR: str = "langgraph"
 
     model_config = SettingsConfigDict(
         env_file=".env",

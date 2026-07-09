@@ -1,0 +1,128 @@
+spec_version: v1
+name: validator_agent
+description: >-
+  Validates a generated blog post draft. If approved, generates metadata
+  (title, slug, description) and saves the article to local storage. If
+  rejected, returns feedback so the generator agent can revise. Returns the
+  updated BlogState with revision_needed=true (rejected) or revision_needed=false
+  plus the saved md_path (approved).
+permission: read_only
+input_schema:
+  type: object
+  required:
+    - state
+  properties:
+    state:
+      type: object
+      title: BlogState
+      required: []
+      properties:
+        domain:
+          type: string
+          title: Domain
+        topic:
+          type: string
+          title: Topic
+        subtopics:
+          type: string
+          title: Subtopics
+        date:
+          type: string
+          title: Date
+        dry_run:
+          type: boolean
+          title: Dry Run
+        news_data:
+          type: string
+          title: News Data
+        title:
+          type: string
+          title: Title
+        description:
+          type: string
+          title: Description
+        tags:
+          type: array
+          title: Tags
+          items:
+            type: string
+        slug:
+          type: string
+          title: Slug
+        content:
+          type: string
+          title: Content
+        read_time:
+          type: string
+          title: Read Time
+        validator_feedback:
+          type: string
+          title: Validator Feedback
+        revision_count:
+          type: integer
+          title: Revision Count
+        revision_needed:
+          type: boolean
+          title: Revision Needed
+        md_path:
+          type: string
+          title: Md Path
+        skipped:
+          type: boolean
+          title: Skipped
+output_schema:
+  type: object
+  title: BlogState
+  required: []
+  properties:
+    domain:
+      type: string
+      title: Domain
+    topic:
+      type: string
+      title: Topic
+    subtopics:
+      type: string
+      title: Subtopics
+    date:
+      type: string
+      title: Date
+    dry_run:
+      type: boolean
+      title: Dry Run
+    title:
+      type: string
+      title: Title
+    description:
+      type: string
+      title: Description
+    slug:
+      type: string
+      title: Slug
+    content:
+      type: string
+      title: Content
+    read_time:
+      type: string
+      title: Read Time
+    validator_feedback:
+      type: string
+      title: Validator Feedback
+    revision_count:
+      type: integer
+      title: Revision Count
+    revision_needed:
+      type: boolean
+      title: Revision Needed
+    md_path:
+      type: string
+      title: Md Path
+    skipped:
+      type: boolean
+      title: Skipped
+binding:
+  python:
+    function: blogboard.agents.validator_agent.agent:validator_node
+    requirements: []
+is_async: false
+response_format: content

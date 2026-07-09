@@ -27,8 +27,8 @@ if sentry_dsn:
         },
     )
 
-# ── Import compiled graph ─────────────────────────────────────────────────────
-from blogboard.graph.graph import graph
+# ── Import settings (needed to choose orchestrator) ──────────────────────────
+from blogboard.config.settings import app_settings
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -73,25 +73,39 @@ Examples
     dry_run  = args.dry_run
     run_ainews = args.ainews
 
+    orchestrator = app_settings.ORCHESTRATOR.lower()
+
     # ── Banner ────────────────────────────────────────────────────────────────
     print(f"\n{'='*55}")
-    print(f"  BlogBoard — LangGraph Article Generator")
-    print(f"  Date    : {date_str}")
-    print(f"  Dry run : {dry_run}")
+    print(f"  BlogBoard — Article Generator")
+    print(f"  Orchestrator : {orchestrator}")
+    print(f"  Date         : {date_str}")
+    print(f"  Dry run      : {dry_run}")
     print(f"{'='*55}")
 
-    # ── Build initial state and invoke the graph ──────────────────────────────
+    # ── Build initial state ───────────────────────────────────────────────────
     initial_state = {
         "date":    date_str,
         "dry_run": dry_run,
     }
-    
+
     if run_ainews:
         initial_state["domain"] = "ainews"
 
-    config = {"configurable": {"thread_id": "blogboard-1"}}
-    # The single compiled graph is smart enough to route to NewsAgent if domain=='ainews'
-    final_state = graph.invoke(initial_state, config=config)
+    # ── Invoke the pipeline ───────────────────────────────────────────────────
+    if orchestrator == "wxorchestrate":
+        print(
+            "\n  [wx Orchestrate] Deploy the agents to the platform, then invoke\n"
+            "  the 'blogboard_orchestrator' agent directly from the wx Orchestrate UI\n"
+            "  or via the orchestrate CLI. See blogboard/orchestrate/__init__.py for\n"
+            "  deployment commands.\n"
+        )
+        raise SystemExit(0)
+    else:
+        # Default: LangGraph
+        from blogboard.graph.graph import graph
+        config = {"configurable": {"thread_id": "blogboard-1"}}
+        final_state = graph.invoke(initial_state, config=config)
 
     # ── Summary ───────────────────────────────────────────────────────────────
     print(f"\n{'='*55}")

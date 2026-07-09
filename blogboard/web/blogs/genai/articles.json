@@ -1,1 +1,16 @@
-[]
+[
+  {
+    "id": "genai/ethics-in-generative-ai.md",
+    "category": "genai",
+    "topic": "Ethics in Generative AI",
+    "subtopics": "Bias in AI-generated content, Transparency in AI decision-making, Regulatory frameworks for Generative AI, Human-AI collaboration",
+    "title": "Ethics in AI",
+    "description": "Explore ethics in Generative AI, from bias to human-AI collaboration",
+    "date": "2026-06-25",
+    "tags": [
+      "genai"
+    ],
+    "readTime": "3 min",
+    "file": "genai/ethics-in-generative-ai.md"
+  }
+]

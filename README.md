@@ -92,6 +92,48 @@ To use this project, you need an API key from Groq to power the Large Language M
 
    **Note:** Keep your API key confidential. Do not share it publicly or expose it in your code.<br>
 
+---
+
+## IBM Watsonx Orchestrate (Optional)
+
+BlogBoard supports **IBM Watsonx Orchestrate** as an alternative orchestration runtime. When enabled, the three agents (tutorial, news, validator) are deployed to the Watsonx Orchestrate platform and the platform manages routing and the validator revision loop. LangGraph remains the default — no change in behaviour unless you opt in.
+
+### How to switch
+
+1. **Install the optional SDK:**
+   ```bash
+   uv sync --extra orchestrate
+   ```
+
+2. **Set the orchestrator in `.env`:**
+   ```dotenv
+   # Choose runtime: "langgraph" (default) or "wxorchestrate"
+   ORCHESTRATOR=wxorchestrate
+
+   # Watsonx Orchestrate platform credentials
+   watsonx_orchestrate__api_key=your_ibm_cloud_api_key
+   watsonx_orchestrate__instance_url=https://your-instance.ibm.com
+   watsonx_orchestrate__space_id=your_space_id   # optional
+
+   # Watsonx.ai LLM credentials (for the underlying model calls)
+   llm__provider=watsonx
+   watsonx__api_key=your_ibm_cloud_api_key
+   watsonx__project_id=your_project_id
+   watsonx__url=https://eu-gb.ml.cloud.ibm.com
+   ```
+
+3. **Run as normal:**
+   ```bash
+   uv run python -m blogboard.run
+   ```
+   The banner will show `Orchestrator : wxorchestrate` confirming the active runtime.
+
+### Switching back to LangGraph
+
+Remove `ORCHESTRATOR=wxorchestrate` from `.env` (or set it to `langgraph`). No code changes required.
+
+---
+
 ## Contributing
 
 Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
