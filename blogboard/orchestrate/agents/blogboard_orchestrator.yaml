@@ -29,8 +29,8 @@ instructions: |
   4. Always pass the FULL state dict returned by each tool as the input to
      the next tool — never drop keys.
   5. Return the final state dict as your response.
-llm: meta-llama/llama-3-3-70b-instruct
-style: default
+llm: groq/openai/gpt-oss-120b
+style: react_intrinsic
 tools:
   - tutorial_agent
   - news_agent
